@@ -5,6 +5,7 @@
  */
 package service;
 
+import com.google.gson.Gson;
 import entities.Player;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -23,6 +24,11 @@ import javax.ws.rs.Produces;
  *
  * @author Renny
  */
+
+ 
+
+
+
 @Stateless
 @Path("entities.player")
 public class PlayerFacadeREST extends AbstractFacade<Player> {
@@ -31,6 +37,55 @@ public class PlayerFacadeREST extends AbstractFacade<Player> {
 
     public PlayerFacadeREST() {
         super(Player.class);
+    }
+    @POST
+    @Path("/login")
+    @Consumes({"application/xml", "application/json"}) 
+    @Produces({"application/xml", "application/json"})
+    public String login(Player entity) {
+        
+        Player player = find(entity.getId());        
+        Gson gson = new Gson();
+        String json = null;
+        
+        if(player == null){
+        
+            json = gson.toJson(new UserRequestResult(0, "There is no such user"));
+        
+        }else{
+            
+            if(entity.getPassword().equals(player.getPassword())){
+                json = gson.toJson(new UserRequestResult(1, "successToken"));
+            }else{
+                 json = gson.toJson(new UserRequestResult(0, "Password is incorrect"));
+            }
+            
+        }
+        
+        return json;
+    }
+    @POST
+    @Path("/join")
+    @Consumes({"application/xml", "application/json"}) 
+    @Produces({"application/xml", "application/json"})
+    public String register(Player entity) {
+        
+        Player player = super.find(entity.getId());        
+        
+        Gson gson = new Gson();
+        String json = null;
+       
+        if(player == null){
+        
+         json = gson.toJson(new UserRequestResult(1, ""));
+         super.create(entity);
+        
+        }else{         
+            json = gson.toJson(new UserRequestResult(0, "User is already registered"));
+        }
+               
+        return json;
+       
     }
 
     @POST

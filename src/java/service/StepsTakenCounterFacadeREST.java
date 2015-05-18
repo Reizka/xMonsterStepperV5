@@ -6,6 +6,9 @@
 package service;
 
 import beans.CaloryBurnCalculatorBean;
+import beans.MonsterMoneyCalculatorBean;
+import beans.PlayerExpCalculatorBean;
+import entities.Player;
 import entities.StepsTakenCounter;
 import entityBeans.CaloriesBurnedFacade;
 import java.util.List;
@@ -34,6 +37,10 @@ public class StepsTakenCounterFacadeREST extends AbstractFacade<StepsTakenCounte
     
     @EJB
     CaloryBurnCalculatorBean cbcb;
+    @EJB
+    MonsterMoneyCalculatorBean mmcb;
+    @EJB 
+    PlayerExpCalculatorBean pecb;
 
     public StepsTakenCounterFacadeREST() {
         super(StepsTakenCounter.class);
@@ -43,10 +50,14 @@ public class StepsTakenCounterFacadeREST extends AbstractFacade<StepsTakenCounte
     @Override
     @Consumes({"application/xml", "application/json"})
     public void create(StepsTakenCounter entity) {
-       
-        super.create(entity);
-        cbcb.calculateKcalBurn( entity.getSteps(), entity.getPlayerPhone().getId());
+
+        //Calory calculation bean
+        cbcb.calculateKcalBurn( entity.getSteps(),entity.getDuration(), entity.getPlayerPhone().getId());
+        //Monster Money calculation bean
+        mmcb.calculateMoney(entity.getSteps(),entity.getPlayerPhone().getId());
+        //updating total steps for Player entity
         
+        super.create(entity);
     }
 
     @PUT

@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/beans/UserRequestResult.java</file>
+            <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/entityBeans/StepsTakenCounterFacade.java</file>
+            <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/entities/StepsTakenCounter.java</file>
+            <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/beans/ValidationInterceptor.java</file>
             <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/beans/CaloryBurnCalculatorBean.java</file>
+            <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/service/PlayerFacadeREST.java</file>
             <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/service/StepsTakenCounterFacadeREST.java</file>
+            <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/beans/MonsterMoneyCalculatorBean.java</file>
+            <file>file:/C:/Ajou_Projects/Netbeans/EJB/xMonsterStepperV5/src/java/beans/PlayerExpCalculatorBean.java</file>
         </group>
     </open-files>
 </project-private>

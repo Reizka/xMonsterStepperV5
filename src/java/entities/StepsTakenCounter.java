@@ -41,6 +41,8 @@ public class StepsTakenCounter implements Serializable {
     @Column(name = "day")
     @Temporal(TemporalType.DATE)
     private Date day;
+    @Column(name="duration")
+    private double duration;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -87,6 +89,13 @@ public class StepsTakenCounter implements Serializable {
 
     public void setPlayerPhone(Player playerPhone) {
         this.playerPhone = playerPhone;
+    }
+      public double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(double duration) {
+        this.duration = duration;
     }
 
     @Override
